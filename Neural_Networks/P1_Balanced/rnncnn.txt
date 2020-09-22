@@ -1,0 +1,48 @@
+input_features:
+    -
+        name: T1
+        type: text
+        level: word
+        representation: dense
+        encoder: cnnrnn
+        cell_type: gru
+        embedding_size: 300    
+        pretrained_embeddings: '/gdrive/My Drive/TextGenerationAdaku.zip (Unzipped Files)/Glove/glove.840B.300d.txt'
+        embeddings_trainable: true
+        dropout: true
+      
+
+
+        
+    -
+        name: T2
+        type: text
+        level: word
+        representation: dense
+        encoder: cnnrnn
+        cell_type: gru
+        embedding_size: 300    
+        pretrained_embeddings: '/gdrive/My Drive/TextGenerationAdaku.zip (Unzipped Files)/Glove/glove.840B.300d.txt'
+        embeddings_trainable: true
+        dropout: true
+        
+
+output_features:
+    -
+        name: class
+        type: category
+        
+
+
+preprocessing:
+    force_split: false
+    split_probabilities: [0.7, 0.1, 0.2]
+    stratify: class
+
+
+
+training:
+    early_stop: 2
+    dropout_rate: 0.5
+    learning_rate: 0.1
+

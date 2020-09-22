@@ -1,0 +1,34 @@
+input_features:
+    -
+        name: text
+        type: text
+        level: word
+        encoder: parallel_cnn
+        preprocessing:
+                word_sequence_length_limit: 500
+                char_sequence_length_limit: 3000
+                lowercase: true
+        
+
+
+
+output_features:
+    -
+        name: class
+        type: category
+        
+      
+
+
+preprocessing:
+    force_split: false
+    split_probabilities: [0.7, 0.1, 0.2]
+    stratify: class
+
+training:
+    early_stop: 2
+    dropout_rate: 0.5
+    learning_rate: 0.001
+
+
+

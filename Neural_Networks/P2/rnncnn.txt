@@ -1,0 +1,27 @@
+input_features:
+    -
+        name: text
+        type: text
+        level: word
+        encoder: cnnrnn
+        cell_type: gru
+    
+
+output_features:
+    -
+        name: class
+        type: category
+        loss:
+            class_weights: {'0':1.0, '1':8.0, '<UNK>':0.0}
+        
+
+preprocessing:
+    force_split: false
+    split_probabilities: [0.7, 0.1, 0.2]
+    stratify: class
+
+
+
+training:
+    early_stop: 2
+    dropout_rate: 0.5

@@ -1,0 +1,27 @@
+input_features:
+    -
+        name: Generation
+        type: text
+        level: word
+        encoder: rnn
+        cell_type: gru
+     
+                 
+       
+
+output_features:
+    -
+        name: label
+        type: category
+        stratify: label
+
+        
+
+preprocessing:
+    force_split: false
+    split_probabilities: [0.7, 0.1, 0.2]
+
+
+training:
+    early_stop: 2
+    dropout_rate: 0.5

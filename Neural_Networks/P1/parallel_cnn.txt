@@ -1,0 +1,36 @@
+input_features:
+    -
+        name: T1
+        type: text
+        level: word
+        representation: dense
+        encoder: parallel_cnn
+       
+
+    -
+        name: T2
+        type: text
+        level: word
+        encoder: parallel_cnn
+    
+
+
+output_features:
+    -
+        name: class
+        type: category
+        loss: 
+            positive_class_weight:  0.125
+
+
+preprocessing:
+    force_split: false
+    split_probabilities: [0.7, 0.1, 0.2]
+
+
+
+training:
+    early_stop: 2
+    dropout_rate: 0.5
+    learning_rate: 0.1
+    

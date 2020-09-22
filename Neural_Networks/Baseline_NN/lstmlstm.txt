@@ -1,0 +1,39 @@
+input_features:
+    -
+        name: POS
+        type: text
+        level: word
+        cell_type: lstm
+        embedding_size: 300    
+        preprocessing:
+                word_sequence_length_limit: 500
+                char_sequence_length_limit: 3000
+                lowercase: true
+        attention_mechanism: bahdanau
+        
+
+
+combiner:
+        type: concat
+        num_fc_layers: 2
+        fc_size: 256
+
+output_features:
+    -
+        name: class
+        type: category
+
+      
+
+
+preprocessing:
+    force_split: false
+    split_probabilities: [0.7, 0.1, 0.2]
+    stratify: class
+    
+
+
+
+training:
+    early_stop: 2
+    dropout_rate: 0.5
